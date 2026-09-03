@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Netlify Identity 로그인 후 이 관리자 페이지(/admin)에서
+# 콘텐츠를 수정하면 실제 웹사이트에 반영됩니다.
+
+media_folder: "assets"
+public_folder: "/assets"
+
+collections:
+  - name: "news"
+    label: "협회 소식"
+    files:
+      - name: "news"
+        label: "소식 목록"
+        file: "data/news.json"
+        fields:
+          - name: "items"
+            label: "소식 항목"
+            widget: "list"
+            label_singular: "소식"
+            summary: "{{date}} - {{title}}"
+            fields:
+              - { name: "date", label: "날짜 (예: 2026.09)", widget: "string" }
+              - { name: "title", label: "제목", widget: "string" }
+              - { name: "link", label: "링크 (선택, 없으면 # 입력)", widget: "string", default: "#" }
