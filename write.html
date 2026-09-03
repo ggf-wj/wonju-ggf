@@ -61,14 +61,10 @@
     <div class="container">
       <div class="form-card">
         <form
-          name="board-post"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          id="boardForm">
-          <input type="hidden" name="form-name" value="board-post">
+          id="boardForm"
+          data-submit-type="board">
           <p class="honeypot-field">
-            <label>이 항목은 채우지 마세요: <input name="bot-field"></label>
+            <label>이 항목은 채우지 마세요: <input name="botField" tabindex="-1" autocomplete="off"></label>
           </p>
 
           <div class="field">

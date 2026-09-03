@@ -67,14 +67,10 @@
         </div>
 
         <form
-          name="membership"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          id="signupForm">
-          <input type="hidden" name="form-name" value="membership">
+          id="signupForm"
+          data-submit-type="membership">
           <p class="honeypot-field">
-            <label>이 항목은 채우지 마세요: <input name="bot-field"></label>
+            <label>이 항목은 채우지 마세요: <input name="botField" tabindex="-1" autocomplete="off"></label>
           </p>
 
           <div class="field">

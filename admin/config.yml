@@ -42,3 +42,37 @@ collections:
               - { name: "date", label: "날짜 (예: 2026.09)", widget: "string" }
               - { name: "author", label: "작성자명", widget: "string" }
               - { name: "body", label: "내용", widget: "text" }
+
+  - name: "pending"
+    label: "🔔 대기중인 신청"
+    files:
+      - name: "pending-board"
+        label: "대기중인 게시글 신청"
+        file: "data/pending-board.json"
+        fields:
+          - name: "items"
+            label: "신청 목록"
+            widget: "list"
+            label_singular: "신청"
+            summary: "{{date}} - {{author}}"
+            fields:
+              - { name: "date", label: "날짜", widget: "string" }
+              - { name: "author", label: "작성자명", widget: "string" }
+              - { name: "email", label: "이메일", widget: "string", required: false }
+              - { name: "body", label: "내용", widget: "text" }
+      - name: "pending-members"
+        label: "대기중인 회원가입 신청"
+        file: "data/pending-members.json"
+        fields:
+          - name: "items"
+            label: "신청 목록"
+            widget: "list"
+            label_singular: "신청"
+            summary: "{{date}} - {{name}}"
+            fields:
+              - { name: "date", label: "날짜", widget: "string" }
+              - { name: "name", label: "이름", widget: "string" }
+              - { name: "phone", label: "연락처", widget: "string" }
+              - { name: "email", label: "이메일", widget: "string", required: false }
+              - { name: "address", label: "주소", widget: "string", required: false }
+              - { name: "message", label: "가입 인사", widget: "text", required: false }

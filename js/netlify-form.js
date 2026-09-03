@@ -1,32 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var forms = document.querySelectorAll('form[data-netlify="true"]');
-
-  function encode(data) {
-    return Object.keys(data)
-      .map(function (key) {
-        return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
-      })
-      .join('&');
-  }
+  var forms = document.querySelectorAll('form[data-submit-type]');
 
   forms.forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      var messageBox = form.querySelector('#formMessage') || document.getElementById('formMessage');
+      var type = form.getAttribute('data-submit-type');
+      var messageBox = document.getElementById('formMessage');
       var submitBtn = form.querySelector('button[type="submit"]');
       var formData = new FormData(form);
-      var payload = {};
+      var payload = { type: type };
       formData.forEach(function (value, key) { payload[key] = value; });
 
       if (submitBtn) { submitBtn.disabled = true; }
 
-      fetch('/', {
+      fetch('/.netlify/functions/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode(payload)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       })
-        .then(function () {
+        .then(function (res) {
+          if (!res.ok) { throw new Error('submit failed'); }
           form.reset();
           form.hidden = true;
           if (messageBox) {
