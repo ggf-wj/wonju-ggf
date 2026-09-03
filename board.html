@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자유게시판 - (사)한국다문화청소년협회 원주지회</title>
+<meta name="description" content="원주지회 자유게시판 - 방문객 여러분의 이야기를 남겨주세요.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="(사)한국다문화청소년협회 GLOBAL GOOD FRIENDS(GGF)" class="logo__img">
+      <span class="logo__text">원주지회</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="index.html#greeting">인사말</a>
+      <a href="index.html#about">협회소개</a>
+      <a href="index.html#board">이사회</a>
+      <a href="index.html#programs">주요사업</a>
+      <a href="index.html#partners">위탁기관</a>
+      <a href="index.html#news">소식</a>
+      <a href="board.html">자유게시판</a>
+      <a href="signup.html">회원가입</a>
+      <a href="index.html#contact">오시는길</a>
+    </nav>
+
+    <a href="index.html#contact" class="btn btn--primary btn--sm nav-cta">문의하기</a>
+
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html#greeting">인사말</a>
+  <a href="index.html#about">협회소개</a>
+  <a href="index.html#board">이사회</a>
+  <a href="index.html#programs">주요사업</a>
+  <a href="index.html#partners">위탁기관</a>
+  <a href="index.html#news">소식</a>
+  <a href="board.html">자유게시판</a>
+  <a href="signup.html">회원가입</a>
+  <a href="index.html#contact">오시는길</a>
+</div>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>자유게시판</h1>
+      <p>원주지회에 하고 싶은 이야기, 응원의 한마디를 자유롭게 남겨주세요. 남겨주신 글은 확인 후 게시판에 올라갑니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="board-toolbar">
+        <a href="write.html" class="btn btn--primary">글쓰기</a>
+      </div>
+      <div class="board-posts" id="boardPosts">
+        <p class="board-empty">게시글을 불러오는 중...</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <img src="assets/logo.png" alt="(사)한국다문화청소년협회" class="footer__logo">
+    <div>
+      <p class="footer__title">(사)한국다문화청소년협회 원주지회</p>
+      <p>강원특별자치도 원주시 원문로 1848, 5호 · 033-734-7990</p>
+      <p class="footer__copy">&copy; 2026 Korea Multicultural Youth Association, Wonju Branch. All rights reserved.</p>
+    </div>
+    <a href="/admin/" class="footer__admin">관리자</a>
+  </div>
+</footer>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

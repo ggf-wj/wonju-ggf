@@ -81,6 +81,55 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 
+  var boardPosts = document.getElementById('boardPosts');
+  if (boardPosts) {
+    fetch('data/board.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        var items = (data && data.items) || [];
+        boardPosts.innerHTML = '';
+        if (items.length === 0) {
+          var empty = document.createElement('p');
+          empty.className = 'board-empty';
+          empty.textContent = '아직 등록된 글이 없습니다. 첫 번째 글을 남겨보세요!';
+          boardPosts.appendChild(empty);
+          return;
+        }
+        items.slice().reverse().forEach(function (item) {
+          var post = document.createElement('article');
+          post.className = 'board-post';
+
+          var meta = document.createElement('div');
+          meta.className = 'board-post__meta';
+
+          var author = document.createElement('span');
+          author.className = 'board-post__author';
+          author.textContent = item.author || '익명';
+
+          var date = document.createElement('span');
+          date.textContent = item.date || '';
+
+          meta.appendChild(author);
+          meta.appendChild(date);
+
+          var body = document.createElement('div');
+          body.className = 'board-post__body';
+          body.textContent = item.body || '';
+
+          post.appendChild(meta);
+          post.appendChild(body);
+          boardPosts.appendChild(post);
+        });
+      })
+      .catch(function () {
+        boardPosts.innerHTML = '';
+        var err = document.createElement('p');
+        err.className = 'board-empty';
+        err.textContent = '게시글을 불러오지 못했습니다.';
+        boardPosts.appendChild(err);
+      });
+  }
+
   var copyBtn = document.getElementById('copyAccount');
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {

@@ -25,3 +25,20 @@ collections:
               - { name: "date", label: "날짜 (예: 2026.09)", widget: "string" }
               - { name: "title", label: "제목", widget: "string" }
               - { name: "link", label: "링크 (선택, 없으면 # 입력)", widget: "string", default: "#" }
+
+  - name: "board"
+    label: "자유게시판"
+    files:
+      - name: "board"
+        label: "게시글 목록"
+        file: "data/board.json"
+        fields:
+          - name: "items"
+            label: "게시글"
+            widget: "list"
+            label_singular: "게시글"
+            summary: "{{date}} - {{author}}"
+            fields:
+              - { name: "date", label: "날짜 (예: 2026.09)", widget: "string" }
+              - { name: "author", label: "작성자명", widget: "string" }
+              - { name: "body", label: "내용", widget: "text" }
